@@ -70,6 +70,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActionType.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Conference.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Division.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Matchup.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupDetail.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupLog.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchupType.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NBAArakelyn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pictures.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerInTeam.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerStatistics.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostSeason.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Season.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>NBAArakelyn.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -181,6 +249,16 @@
     <Compile Include="Models\Season.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="NBAArakelyn.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NBAArakelyn.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NBAArakelyn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NBAArakelyn.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddMatchup.xaml.cs">
       <DependentUpon>AddMatchup.xaml</DependentUpon>
     </Compile>
@@ -252,6 +330,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="NBAArakelyn.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NBAArakelyn.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NBAArakelyn.edmx.diagram">
+      <DependentUpon>NBAArakelyn.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -331,6 +416,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NBAArakelyn.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NBAArakelyn.edmx</DependentUpon>
+      <LastGenOutput>NBAArakelyn.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NBAArakelyn.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NBAArakelyn.edmx</DependentUpon>
+      <LastGenOutput>NBAArakelyn.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

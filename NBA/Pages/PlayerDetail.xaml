@@ -47,7 +47,7 @@
                 <Border Height="150" BorderBrush="Gray" Margin="20,120,20,0" VerticalAlignment="Bottom" BorderThickness="1">
                     <TabControl>
                         <TabItem>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,192,0">
                                 <StackPanel Margin="10,20,0,15">
                                     <Label Content="40" FontSize="12"/>
                                     <Label Content="30" FontSize="12"/>
