@@ -15,10 +15,10 @@ namespace NBA
     public partial class MatchupDetail
     {
         public int Id { get; set; }
-        public Nullable<int> MatchupId { get; set; }
-        public Nullable<int> Quarter { get; set; }
-        public Nullable<int> Team_Away_Score { get; set; }
-        public Nullable<int> Team_Home_Score { get; set; }
+        public int MatchupId { get; set; }
+        public int Quarter { get; set; }
+        public int Team_Away_Score { get; set; }
+        public int Team_Home_Score { get; set; }
     
         public virtual Matchup Matchup { get; set; }
     }

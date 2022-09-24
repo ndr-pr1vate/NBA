@@ -15,17 +15,18 @@ namespace NBA
     public partial class MatchupLog
     {
         public int Id { get; set; }
-        public Nullable<int> MatchupId { get; set; }
-        public Nullable<int> Quarter { get; set; }
-        public Nullable<System.DateTime> OccurTime { get; set; }
-        public Nullable<int> TeamId { get; set; }
-        public Nullable<int> PlayerId { get; set; }
-        public Nullable<int> ActionTypeId { get; set; }
+        public int MatchupId { get; set; }
+        public int Quarter { get; set; }
+        public System.DateTime OccurTime { get; set; }
+        public int TeamId { get; set; }
+        public int PlayerId { get; set; }
+        public int ActionTypeId { get; set; }
         public string Remark { get; set; }
     
         public virtual ActionType ActionType { get; set; }
         public virtual Matchup Matchup { get; set; }
         public virtual Player Player { get; set; }
+        public virtual Player Player1 { get; set; }
         public virtual Team Team { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace NBA
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ActionType()
         {
-            this.MatchupLog = new HashSet<MatchupLog>();
+            this.MatchupLogs = new HashSet<MatchupLog>();
         }
     
         public int ActionTypeId { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MatchupLog> MatchupLog { get; set; }
+        public virtual ICollection<MatchupLog> MatchupLogs { get; set; }
     }
 }

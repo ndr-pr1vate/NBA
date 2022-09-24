@@ -14,14 +14,14 @@ namespace NBA
     
     public partial class Admin
     {
-        public int Jobnumber { get; set; }
+        public string Jobnumber { get; set; }
         public string Name { get; set; }
         public string Passwords { get; set; }
         public string Gender { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Nullable<int> RoleId { get; set; }
+        public string RoleId { get; set; }
     
         public virtual Role Role { get; set; }
     }

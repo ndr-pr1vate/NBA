@@ -12,12 +12,12 @@ namespace NBA
     using System;
     using System.Collections.Generic;
     
-    public partial class Pictures
+    public partial class Picture
     {
         public int Id { get; set; }
         public byte[] Img { get; set; }
         public string Description { get; set; }
-        public Nullable<int> NumberOfLike { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public int NumberOfLike { get; set; }
+        public System.DateTime CreateTime { get; set; }
     }
 }

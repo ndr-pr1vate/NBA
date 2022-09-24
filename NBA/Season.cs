@@ -17,19 +17,19 @@ namespace NBA
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Season()
         {
-            this.Matchup = new HashSet<Matchup>();
-            this.PlayerInTeam = new HashSet<PlayerInTeam>();
-            this.PostSeason = new HashSet<PostSeason>();
+            this.Matchups = new HashSet<Matchup>();
+            this.PlayerInTeams = new HashSet<PlayerInTeam>();
+            this.PostSeasons = new HashSet<PostSeason>();
         }
     
         public int SeasonId { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Matchup> Matchup { get; set; }
+        public virtual ICollection<Matchup> Matchups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayerInTeam> PlayerInTeam { get; set; }
+        public virtual ICollection<PlayerInTeam> PlayerInTeams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostSeason> PostSeason { get; set; }
+        public virtual ICollection<PostSeason> PostSeasons { get; set; }
     }
 }

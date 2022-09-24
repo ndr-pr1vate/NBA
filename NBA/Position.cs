@@ -17,7 +17,7 @@ namespace NBA
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Position()
         {
-            this.Player = new HashSet<Player>();
+            this.Players = new HashSet<Player>();
         }
     
         public int PositionId { get; set; }
@@ -25,6 +25,6 @@ namespace NBA
         public string Abbr { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Player> Player { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

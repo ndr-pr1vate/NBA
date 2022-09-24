@@ -14,10 +14,9 @@ namespace NBA
     
     public partial class PostSeason
     {
-        public int Id { get; set; }
         public int TeamId { get; set; }
-        public Nullable<int> SeasonId { get; set; }
-        public Nullable<int> Rank { get; set; }
+        public int SeasonId { get; set; }
+        public int Rank { get; set; }
     
         public virtual Season Season { get; set; }
         public virtual Team Team { get; set; }

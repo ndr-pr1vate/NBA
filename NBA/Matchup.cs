@@ -17,21 +17,21 @@ namespace NBA
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Matchup()
         {
-            this.MatchupDetail = new HashSet<MatchupDetail>();
-            this.MatchupLog = new HashSet<MatchupLog>();
-            this.PlayerStatistics = new HashSet<PlayerStatistics>();
+            this.MatchupDetails = new HashSet<MatchupDetail>();
+            this.MatchupLogs = new HashSet<MatchupLog>();
+            this.PlayerStatistics = new HashSet<PlayerStatistic>();
         }
     
         public int MatchupId { get; set; }
-        public Nullable<int> SeasonId { get; set; }
-        public Nullable<int> MatchupTypeId { get; set; }
-        public Nullable<int> Team_Away { get; set; }
-        public Nullable<int> Team_Home { get; set; }
-        public Nullable<System.DateTime> Starttime { get; set; }
-        public Nullable<int> Team_Away_Score { get; set; }
-        public Nullable<int> Team_Home_Score { get; set; }
+        public int SeasonId { get; set; }
+        public int MatchupTypeId { get; set; }
+        public int Team_Away { get; set; }
+        public int Team_Home { get; set; }
+        public System.DateTime Starttime { get; set; }
+        public int Team_Away_Score { get; set; }
+        public int Team_Home_Score { get; set; }
         public string Location { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int Status { get; set; }
         public string CurrentQuarter { get; set; }
     
         public virtual MatchupType MatchupType { get; set; }
@@ -39,10 +39,10 @@ namespace NBA
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MatchupDetail> MatchupDetail { get; set; }
+        public virtual ICollection<MatchupDetail> MatchupDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MatchupLog> MatchupLog { get; set; }
+        public virtual ICollection<MatchupLog> MatchupLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayerStatistics> PlayerStatistics { get; set; }
+        public virtual ICollection<PlayerStatistic> PlayerStatistics { get; set; }
     }
 }
