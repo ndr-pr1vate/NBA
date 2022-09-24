@@ -23,18 +23,22 @@ namespace NBA.Pages
         public TeamsMain()
         {
             InitializeComponent();
-            
+
         }
+
         public void LoadData()
         {
-            
+            var easternDivision = App.DB.Conferences
+                .FirstOrDefault(x => x.Name == "Eastern");
+            EasterDivision.ItemsSource = easternDivision.Divisions;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                AlphabelFilterListView.ItemsSource = new string[] { "ALL", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "U", "W", "X", "Y", "Z" };
+                LoadData();
+                //AlphabelFilterListView.ItemsSource = new string[] { "ALL", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "U", "W", "X", "Y", "Z" };
             }
             catch (Exception ex)
             {
@@ -62,5 +66,6 @@ namespace NBA.Pages
         {
             LoadData();
         }
+
     }
 }

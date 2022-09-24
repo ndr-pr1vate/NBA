@@ -133,6 +133,12 @@
     <Compile Include="Team.cs">
       <DependentUpon>ado.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Teams\DivisionUserControl.xaml.cs">
+      <DependentUpon>DivisionUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Teams\TeamUserControl.xaml.cs">
+      <DependentUpon>TeamUserControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -225,6 +231,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\VisitorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Teams\DivisionUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Teams\TeamUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
