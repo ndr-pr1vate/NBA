@@ -136,6 +136,9 @@
     <Compile Include="UserControls\Teams\DivisionUserControl.xaml.cs">
       <DependentUpon>DivisionUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Teams\MatchupListUserControl.xaml.cs">
+      <DependentUpon>MatchupListUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Teams\TeamUserControl.xaml.cs">
       <DependentUpon>TeamUserControl.xaml</DependentUpon>
     </Compile>
@@ -235,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Teams\DivisionUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Teams\MatchupListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

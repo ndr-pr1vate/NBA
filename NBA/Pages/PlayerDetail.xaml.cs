@@ -23,9 +23,15 @@ namespace NBA.Pages
         public PlayerDetail()
         {
             InitializeComponent();
+            this.DataContext = App.DB.Players.FirstOrDefault();
         //    Name.Content = selectedPlayer.Player.Name;
         //    ShirtNumber.Content = $" | {selectedPlayer.Player.PlayerInTeam.Select(s => s.ShirtNumber)} | ";
         //    Team.Content = $"{selectedPlayer.Player.PlayerInTeam.Select(t=>t.Team.TeamName)}";
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

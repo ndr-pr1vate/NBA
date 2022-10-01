@@ -20,9 +20,15 @@ namespace NBA.Pages
     /// </summary>
     public partial class MatchupMain : Page
     {
+
+        public void LoadData()
+        {
+
+        }
         //private static List<AnonimMatchup> _allMatchup =new List<AnonimMatchup>();
         public MatchupMain()
         {
+            LoadData();
             //InitializeComponent();
             //MainDate.Text = $"{DateTime.Now:d}";
             //for (int i = 0; i < NBAEntities.GetContext().Matchup.ToList().Count; i++)

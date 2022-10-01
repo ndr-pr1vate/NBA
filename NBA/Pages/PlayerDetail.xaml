@@ -3,14 +3,206 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:NBA.Pages"
+      xmlns:local="clr-namespace:NBA.Pages" xmlns:system="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PlayerDetail">
 
     <Grid Background="White" x:Name="GridPlayer">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Image x:Name="Image" Height="50" Width="50"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Width="60"
+                       Height="60"
+                       Margin="5"
+                       Source="{Binding Photo}">
+                </Image>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Border BorderBrush="Black"
+                                BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                Grid.Row="1">
+                        <TextBlock Text="{Binding PlayerId, StringFormat={} # {0} }"></TextBlock>
+                        <TextBlock Text="{Binding Weight, StringFormat={} | {0:F2} }"></TextBlock>
+                        <TextBlock Text="{Binding Team.TeamName, StringFormat={} | {0}}"></TextBlock>
+                    </StackPanel>
+                    <UniformGrid Columns="4"
+                                 Rows="2"
+                                 Grid.Row="2">
+                        <TextBlock Text="Born"/>
+                        <TextBlock Text="{Binding DateOfBirth, StringFormat=d}"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="Experience"/>
+                        <TextBlock Text="{Binding Experience}"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="College"/>
+                        <TextBlock Text="{Binding College}"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="Salary"/>
+                        <TextBlock Text="{Binding Salary, StringFormat=C0}"
+                                   FontWeight="Bold"/>
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+
+            <UniformGrid Grid.Column="1"
+                         Rows="2"
+                         Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{Binding Season, StringFormat={}{0} Season}"/>
+                    <DataGrid x:Name="StatsBySeason"
+                              ColumnWidth="*"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PPG"
+                                                Binding="{Binding PPG}"/>
+                            <DataGridTextColumn Header="APG"
+                                                Binding="{Binding APG}"/>
+                            <DataGridTextColumn Header="RPG"
+                                                Binding="{Binding RPG}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Career"/>
+                    <DataGrid x:Name="StatsByCareer"
+                              ColumnWidth="*"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="PPG"
+                                                Binding="{Binding PPG}"/>
+                            <DataGridTextColumn Header="APG"
+                                                Binding="{Binding APG}"/>
+                            <DataGridTextColumn Header="RPG"
+                                                Binding="{Binding RPG}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </UniformGrid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="5">
+                    <TextBlock Text="Date:"
+                               VerticalAlignment="Center"
+                               Margin="5,0"/>
+                    <DatePicker x:Name="FromDatePicker"
+                                Width="120"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="1"
+                            Margin="5">
+                    <TextBlock Text="-"
+                               VerticalAlignment="Center"
+                               Margin="5,0"/>
+                    <DatePicker x:Name="ToDatePicker"
+                                Width="120"/>
+                </StackPanel>
+
+                <Button x:Name="SearchButton"
+                        Click="SearchButton_Click"
+                        Grid.Column="2"
+                        Content="Search"
+                        Padding="15,5"
+                        Margin="5"/>
+            </Grid>
+
+            <ListView x:Name="FilterListView"
+                      HorizontalAlignment="Center"
+                      BorderThickness="0"
+                      Grid.Row="1">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"
+                                   FontWeight="Bold"
+                                   Padding="15,5"
+                                   Background="#FFEDEDED"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <system:String>POINTS</system:String>
+                <system:String>REBOUND</system:String>
+                <system:String>ASSISTS</system:String>
+                <system:String>STEALS</system:String>
+                <system:String>BLOCKS</system:String>
+            </ListView>
+
+            <TextBlock Grid.Row="2"
+                       x:Name="AvgOfPointsTextBlock"
+                       Padding="5"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       Text="The average of points:"/>
+
+            <Grid Grid.Row="3">
+                <TextBlock Text="Тут будет графек"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
+
+<!--<Image x:Name="Image" Height="50" Width="50"/>
         <StackPanel>
         <Label x:Name="Name" />
             <StackPanel Orientation="Horizontal">
@@ -69,6 +261,5 @@
                     </TabControl>
                 </Border>
             </StackPanel>
-        </Border>
-    </Grid>
-</Page>
+        </Border>-->
+

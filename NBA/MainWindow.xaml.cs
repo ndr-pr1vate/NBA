@@ -22,8 +22,6 @@ namespace NBA
     //    / </summary>
     public partial class MainWindow : Window
     {
-        public static Frame frame { get; set; } 
-
         public List<BitmapImage> _Images = new List<BitmapImage>();
         public int[] _currentImages = new int[3] { 0, 1, 2 };
 

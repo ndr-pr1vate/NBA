@@ -16,6 +16,7 @@ using System.IO;
 
 namespace NBA.Pages
 {
+
     /// <summary>
     /// Логика взаимодействия для Main.xaml
     /// </summary>
